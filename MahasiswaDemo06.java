@@ -4,7 +4,10 @@ public class MahasiswaDemo06 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int jumMhs = 5;
+        System.out.print("Masukkan jumlah mahasiswa: ");
+        int jumMhs = sc.nextInt();
+        sc.nextLine();
+
         MahasiswaBerprestasi06 list = new MahasiswaBerprestasi06(jumMhs);
 
         for (int i = 0; i < jumMhs; i++) {
@@ -16,41 +19,23 @@ public class MahasiswaDemo06 {
             System.out.print("Kelas : ");
             String kelas = sc.nextLine();
             System.out.print("IPK   : ");
-            String ip = sc.nextLine();
-            Double ipk = Double.parseDouble(ip);
+            double ipk = sc.nextDouble();
+            sc.nextLine(); 
             System.out.println("--------------------------------");
             list.tambah(new Mahasiswa06(nim, nama, kelas, ipk));
         }
 
         list.tampil();
-        
-        // System.out.println("--------------------------------");
-        // System.out.println("Pencarian data");
-        // System.out.println("--------------------------------");
-        // System.out.println("masukkan ipk mahasiswa yang dicari: ");
-        // System.out.print("IPK: ");
-        // double cari = sc.nextDouble();
 
-        // System.out.println("menggunakan sequential searching");
-        // double posisi = list.sequentialSearching(cari);
-        // int pss = (int)posisi;
-        // list.tampilPosisi(cari, pss);
-        // list.tampilDataSearch(cari, pss);
-
-        System.out.println("-----------------------------");  
+        System.out.println("-----------------------------");
         System.out.println("Pencarian data");
         System.out.println("-----------------------------");
-        System.out.println("Masukkan IPK mahasiswa yang dicari: ");
-        System.out.print("IPK: ");
+        System.out.print("Masukkan IPK mahasiswa yang dicari: ");
         double cari = sc.nextDouble();
+
         int left = 0;
-        
-        System.out.println("-----------------------------");
-        System.out.println("menggunakan binery search");
-        System.out.println("-----------------------------");
-        double posisi = list.findBinarySearch(cari, left, jumMhs-1);
-        int pss = (int)posisi;
-        list.tampilPosisi(cari, pss);
-        list.tampilDataSearch(cari, pss);
+        int posisi = list.findBinarySearch(cari, left, jumMhs - 1);
+        list.tampilPosisi(cari, posisi);
+        list.tampilDataSearch(cari, posisi);
     }
 }

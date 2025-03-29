@@ -91,16 +91,16 @@ public class MahasiswaBerprestasi06 {
         }
     }
 
-    int findBinarySearch(double cari, int left, int right){
+    int findBinarySearch(double cari, int left, int right) {
         int mid;
-        if (right >= left){
-            mid = (left + right)/2;
-            if (cari == listMhs[mid].ipk){
+        if (right >= left) {
+            mid = (left + right) / 2;
+            if (cari == listMhs[mid].ipk) {
                 return mid;
-            } else if (listMhs[mid].ipk > cari){
-                return findBinarySearch(cari, left, mid-1);
-            } else{
-                return findBinarySearch(cari, mid+1, right);
+            } else if (listMhs[mid].ipk < cari) { 
+                return findBinarySearch(cari, left, mid - 1);
+            } else {
+                return findBinarySearch(cari, mid + 1, right);
             }
         }
         return -1;
